@@ -1,8 +1,19 @@
-async function getSites() {
-	const response = await fetch('https://www.data.gouv.fr/fr/datasets/r/ea98fdcb-5c24-4646-9823-c6d2914d0b36');
+
+
+
+
+async function getMuseums() {
+	const response = await fetch('https://www.data.gouv.fr/fr/datasets/r/a5c5d76e-979a-4073-ba0d-0844bb3c1398');
 	const data = await response.json();
 
-	console.log('🐤 sites :', data);
+	console.log('🐤 musées :', data);
 }
-	getSites();
-  
+	getMuseums();
+
+
+
+// HTML
+// const mainContainer = document.querySelector("#main-container");
+// const nomMusee = document.querySelector("#nom-musee");
+// const lieu = document.querySelector("#lieu");
+// console.log('🐯 main-container :', data);
