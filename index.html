@@ -10,8 +10,19 @@
 
 <body>
 	<header>
-		<img src="./images/img-musee1.png" alt="">
-		<p>Voici le logo</p>
+
+		<div ><img src="./images/img-musee1.png" alt=""></div>
+		<div>
+			<h1>Amusée-vous</h1>
+		</div>
+		<div id="navBar">
+			<nav>
+				<ul>
+					<a href="search.html"><li>Recherche</li></a>
+					<a href="#"><li>A propos</li></a>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 
@@ -28,7 +39,9 @@
 		</div>
 
 		<div id="cards-container">
-			<div class="card" id="findMuseum">Trouver un musée autour de moi</div>
+			<a href="search.html">
+				<div class="card" id="findMuseum">Trouver un musée autour de moi</div>
+			</a>
 			<div class="card" id="museumMap">Carte de France des musées</div>
 			<div class="card" id="placeholder">Placeholder</div>
 		</div>

@@ -100,9 +100,10 @@ video {
 header {
 	display: flex;
 	background-color: var(--firstColor);
+	justify-content: space-around;
 }
 
-header>img {
+header img {
 	width: 100px;
 }
 
@@ -151,4 +152,27 @@ footer {
 	background-color: var(--fourthColor);
 	color: var(--main);
 	height: 200px;
+}
+
+#accueil{
+
+	background-color: var(--fourthColor);
+	color: var(--main);
+	border-radius: 10px;
+	border: solid 1px var(--firstColor);
+}
+
+#divButton{
+	display: flex;
+	margin-top: 10px;
+	margin-right: 15px;
+	justify-content: flex-end;
+}
+
+li{
+	list-style: none;
+}
+
+#navBar{
+	justify-content: space-around;
 }
