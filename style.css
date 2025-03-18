@@ -1,9 +1,9 @@
 :root {
     --main:#ffffff;
-    --firstColor:#ffffff;
-    --secondColor:#ffffff;
-    --thirdColor:#ffffff;
-    --fourthColor:#ffffff;
+    --firstColor: #F5B82E;
+    --secondColor: #F4AC32;
+    --thirdColor: #6B2737;
+    --fourthColor: #003049;
 }
 
 /* Nous cassons (reset) l'effet d'héritage pour toutes les balises susceptibles d'être concernées */
@@ -19,7 +19,13 @@ small, strike, sub, sup, tt, var,b, u, i, center, dl, dt, dd, ol, ul, li,fieldse
 }
 
 /* HEADER */
-
+header {
+	display: flex;
+	background-color: var(--firstColor);
+}
+header > img {
+	width: 100px;
+}
 
 
 /*  MAIN */
@@ -35,11 +41,12 @@ small, strike, sub, sup, tt, var,b, u, i, center, dl, dt, dd, ol, ul, li,fieldse
 	
 }
 .card{
-	border: 1px solid green;
+	border: 1px solid var(--secondColor);
 	border-radius : 10px;
 	margin : 8px;
 	padding : 6px;
-	background-color: blue;
+	background-color: var(--fourthColor);
+	color: var(--main);
 	width : 30%;
 }
 
