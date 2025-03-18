@@ -20,7 +20,31 @@ small, strike, sub, sup, tt, var,b, u, i, center, dl, dt, dd, ol, ul, li,fieldse
 
 /* HEADER */
 
+
+
+/*  MAIN */
+#main-container{
+	display : flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+#cards-container{
+	display: flex;
+	flex-direction : row;
+	justify-content :space-evenly;
+	
+}
+.card{
+	border: 1px solid green;
+	border-radius : 10px;
+	margin : 8px;
+	padding : 6px;
+	background-color: blue;
+	width : 30%;
+}
+
+
 /* FOOTER */
 footer {
-
+background-color: var(--main);
 }
