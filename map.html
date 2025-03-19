@@ -1,47 +1,95 @@
-
-
 <!DOCTYPE html>
 <html lang="fr">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Amusée-vous</title>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="stylesheet" href="style.css">
+   <title>Amusée-vous</title>
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
 </head>
 
 <body>
-	<header>
-		<img src="./images/img-musee1.png" alt="">
-		<p>Voici le logo</p>
-	</header>
+   <header id="hautDePage">
+      <div id="logo">
+         <img src="./images/img-musee1.png" alt="logo-site" />
+      </div>
+      <div id="titre">
+         <h1>Amusée-vous</h1>
+      </div>
+      <div id="navBar">
+         <nav>
+            <ul>
+               <li><a href="search.html">Recherche</a></li>
+               <li><a href="#">A propos</a></li>
+            </ul>
+         </nav>
+      </div>
+   </header>
 
-           
-         <div id="mapcontainer">
-            <h1 id="maptitle">Carte Interactive des Musées en France 🏛️</h1>
+   <div id="container">
+      <h1 id="maptitle">Carte Interactive des Musées en France 🏛️</h1>
+      <p id="textemap">Bienvenue sur notre carte interactive des musées de France, votre porte d'entrée vers un voyage
+         captivant à travers l'art,
+         l'histoire et la culture. Que vous soyez un passionné d'art, un féru d'histoire ou simplement à la recherche
+         d'une sortie culturelle enrichissante,
+         notre carte vous invite à découvrir la richesse et la diversité des musées français. Parcourez la carte pour
+         localiser les musées près de chez vous ou
+         planifiez votre prochaine escapade culturelle en explorant les régions de France. Chaque point sur la carte
+         représente un musée, des plus célèbres aux plus insolites,
+         chacun offrant une expérience unique et des collections fascinantes. Utilisez les filtres pour affiner votre
+         recherche par type de musée, région ou thème, et trouvez le
+         lieu culturel qui correspond parfaitement à vos centres d'intérêt. Laissez-vous guider par notre carte et
+         partez à la découverte des trésors cachés de la France. Des chefs-d'œuvre de l'art classique aux expositions
+         contemporaines audacieuses,
+         des musées d'histoire retraçant les grandes époques aux musées de sciences explorant les mystères de l'univers,
+         il y en a pour tous les goûts et toutes les curiosités. Préparez-vous à être émerveillé, inspiré et enrichi par
+         la diversité culturelle de la France.
+         Notre carte des musées est votre compagnon idéal pour une exploration culturelle inoubliable.
+      </p>
+      <br>
 
 
-            <p id="textemap">« Bienvenue sur notre carte interactive des musées de France, votre porte d'entrée vers un voyage captivant à travers l'art, l'histoire et la culture. Que vous soyez un passionné d'art, un féru d'histoire ou simplement à la recherche d'une sortie culturelle enrichissante, notre carte vous invite à découvrir la richesse et la diversité des musées français.
 
-                Parcourez la carte pour localiser les musées près de chez vous ou planifiez votre prochaine escapade culturelle en explorant les régions de France. Chaque point sur la carte représente un musée, des plus célèbres aux plus insolites, chacun offrant une expérience unique et des collections fascinantes.
+      <iframe id="map"
+         src="https://www.openstreetmap.org/export/embed.html?bbox=-8.942871093750002%2C39.87601941962116%2C13.029785156250002%2C50.90303283111257&amp;layer=mapnik"
+         style="border: 3px solid rgb(0, 0, 0)"></iframe>
+      <style>
+         #map {
+            height: 600px;
+            width: 65%;
+            padding: 20px;
+         }
 
-             Utilisez les filtres pour affiner votre recherche par type de musée, région ou thème, et trouvez le lieu culturel qui correspond parfaitement à vos centres d'intérêt.
-                
-                Laissez-vous guider par notre carte et partez à la découverte des trésors cachés de la France. Des chefs-d'œuvre de l'art classique aux expositions contemporaines audacieuses, des musées d'histoire retraçant les grandes époques aux musées de sciences explorant les mystères de l'univers, il y en a pour tous les goûts et toutes les curiosités.
-                
-                Préparez-vous à être émerveillé, inspiré et enrichi par la diversité culturelle de la France. Notre carte des musées est votre compagnon idéal pour une exploration culturelle inoubliable. »</p>
-        </div>
-         
-		
-	</div>
-    
-     <footer>
-     <p>&copy; Amusée-vous.ada</p>
-     <nav>
-     <a href="/mentions-legales">Mentions légales</a>
-     <a href="/contact">Contact</a>
-     </nav>
-    </footer>
+         #textemap {
+            padding: 20px;
+            border: 3px solid black;
+         }
 
-    
-            
+         #container {
+            padding: 50px;
+         }
+
+         #filter {
+            position: relative}
+      </style>
+
+      <br />
+
+      </select id="filter">Filtrer votre recherche/
+      <option>Histoire</option>
+      <option>Art</option>
+      </select>
+      ><select name="" id=""></select>
+      <footer>
+         <div class="footer">
+            Source : API | Répertoire des Musées de France : base Muséofile
+         </div>
+         <div class="footer">© 2025</div>
+         <div class="footer" id="hautdepage">
+            <a href="#hautDePage"> ⬆︎ Haut de page</a>
+         </div>
+      </footer>
+</body>
+
+</html>
