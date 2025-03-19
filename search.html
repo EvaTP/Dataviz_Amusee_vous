@@ -33,12 +33,68 @@
     <div id="searchresults-container">
       <div class="search" id="menuderoulant">
         <aside>
-          <h2>Menu</h2>
-          <p>Sélectionnez une région</p>
+          <h2>🏛️ Recherche</h2>
+          
+          <label for="region-select">Sélectionnez une région:</label><br>
+            <select name="region-select" id="recherche-region">
+                <option value="">--Choisissez une option--</option>
+                <option value="Auvergne-Rhône-Alpes" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=region&where=region%3D%22Auvergne-Rhône-Alpes%22">Auvergne-Rhône-Alpes</option>
+                <option value="Bourgogne-Franche-Comté" data-url="https://example.com/hauts-de-france">Bourgogne-Franche-Comté</option>
+                <option value="Bretagne" data-url="URL_Bretagne">Bretagne</option>
+                <option value="COM-DROM" data-url="URL_COM_DROM">COM et DROM</option>
+                <option value="Centre-Val de Loire" data-url="URL_Centre_Val_de_Loire">Centre-Val de Loire</option>
+                <option value="Corse" data-url="URL_Grand_Est">Corse</option>
+                <option value="Grand Est" data-url="URL_Grand_Est">Grand Est</option>
+                <option value="Hauts-de-France" data-url="URL_Hauts_de_France">Hauts-de-France</option>
+                <option value="Ile-de-France" data-url="URL_Ile_de_France">Ile-de-France</option>
+                <option value="Normandie" data-url="URL_Normandie">Normandie</option>
+                <option value="Nouvelle-Aquitaine" data-url="URL_Nouvelle_Aquitaine">Nouvelle-Aquitaine</option>
+                <option value="Occitanie" data-url="URL_Occitanie">Occitanie</option>
+                <option value="Pays-de-la-Loire" data-url="URL_Pays_de_la_Loire">Pays-de-la-Loire</option>
+                <option value="Provence-Alpes-Côte d'Azur" data-url="URL_Provence_Alpes_Côte_d_Azur">Provence-Alpes-Côte d'Azur</option>
+            </select>
+            <br><br>
+
 
           <p>Sélectionnez une ville</p>
+          <br><br>
+          <label for="region-select">Sélectionnez une thématique:</label><br>
+          <select name="theme-select" id="recherche-thematique">
+              <option value="">--Choisissez une option--</option>
+              <optgroup label="Thèmes">
+              <option value="Archeologie" data-url="">Archéologie</option>
+              <option value="ArcheologieBati" data-url="">Archéologie du Bâti</option>
+              <option value="ArtsDeco" data-url="">Arts décoratifs</option>
+              <option value="Egyptien" data-url="">Art Egyptien</option>
+              <option value="GalloRomain" data-url="">Art Gallo-romain</option>
+              <option value="Grec" data-url="">Art Grec</option>   
+              <option value="ArtsIslam" data-url="">Arts de l'Islam</option>
+              <option value="ArtModerne" data-url="">Art moderne et contemporain</option>
+              <option value="BeauxArts" data-url="">Beaux-arts</option>
+              <option value="Design" data-url="">Design</option>
+              <option value="Ethnologie" data-url="">Ethnologie</option>
+              <option value="Histoire" data-url="">Histoire</option>
+              <option value="Litterature" data-url="">Littérature</option>
+              <option value="Militaria" data-url="">Militaria</option>
+              <option value="MemoireEsclavageColonisation" data-url="">Esclavage, colonisation</option>
+              <option value="Mode-Textile-Couture-Imprime" data-url="">Mode et Textile</option>
+              <option value="MusiqueChantDanse" data-url="">Musique, chant, danse</option>
+              <option value="Numismatique" data-url="">Numismatique</option>
+              <option value="Peinture" data-url="">Peinture</option>
+              <option value="Photo" data-url="">Photographie</option>
+              <option value="Protohistoire" data-url="">Protohistoire</option>
+              <option value="SciencesNature" data-url="">Sciences de la nature</option>
+              <option value="SciencesFond" data-url="">Sciences fondamentales</option>
+              <option value="SciencesTechIndust" data-url="">Sciences, Techniques et Industrie</option>
+            </optgroup>
+            <optgroup label="Continents">
+              <option value="Afrique" data-url="">Afrique</option>
+              <option value="Amérique" data-url="">Amérique</option>
+              <option value="Océanie" data-url="">Océanie</option>
+            </optgroup>
+          </select>
+          <br><br>
 
-          <p>Sélectionnez une thématique</p>
         </aside>
       </div>
 

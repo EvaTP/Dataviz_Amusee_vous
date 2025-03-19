@@ -212,18 +212,29 @@ header nav a{
 	border : 1px solid black;	
 	display:flex;
 	flex-direction: row;
+	justify-content: space-between;
 	margin : 2em;
-	padding : 1em;
+	padding : 1.5em;
 }
-#museums-list{
+#museumsList{
 	border : 1px solid black;	
 }
 #menuderoulant{
 	border : 1px solid black;	
+	width: 25%;
+}
+aside{
+	box-shadow: 6px 6px 5px var(--fourthColor);
+	color: var(--fourthColor);
+	padding: 0.25em;
 }
 aside h2{
 	font-weight: bold;
-	margin-bottom: 0.50em;
+	font-size: 1.5em;
+	margin: 0.50em 0.25em;
+}
+.museumImage{
+	width: 100px;
 }
 
 
