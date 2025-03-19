@@ -206,6 +206,27 @@ header nav a{
 	border: 1px solid black;
 }
 
+/* PAGE SEARCH */
+
+#searchresults-container{
+	border : 1px solid black;	
+	display:flex;
+	flex-direction: row;
+	margin : 2em;
+	padding : 1em;
+}
+#museums-list{
+	border : 1px solid black;	
+}
+#menuderoulant{
+	border : 1px solid black;	
+}
+aside h2{
+	font-weight: bold;
+	margin-bottom: 0.50em;
+}
+
+
 /* FOOTER */
 footer {
 	display: flex;

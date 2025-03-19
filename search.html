@@ -1,22 +1,50 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" defer ></script>
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Recherche</title>
+  </head>
 
-<body>
-    <header>
-		<img src="./images/img-musee1.png" alt="">
-		<p>Voici le logo</p>
-	</header>
-  <div id="divButton"> 
-    <a href="index.html"> <button id="accueil" >Retour à l'accueil</button></a>
-</div>
-    <div class="search" id="museumsList"></div>
+  <body>
+    <header id="hautDePage">
+      <div id="logo">
+        <img src="./images/img-musee1.png" alt="logo-site" />
+      </div>
+      <div id="titre">
+        <h1>Amusée-vous</h1>
+      </div>
+      <div id="navBar">
+        <nav>
+          <ul>
+            <li><a href="search.html">Recherche</a></li>
+            <li><a href="#">A propos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-</body>
+    <div id="divButton">
+      <a href="index.html"> <button id="accueil">Retour à l'accueil</button></a>
+    </div>
+
+    <div id="searchresults-container">
+      <div class="search" id="menuderoulant">
+        <aside>
+          <h2>Menu</h2>
+          <p>Sélectionnez une région</p>
+
+          <p>Sélectionnez une ville</p>
+
+          <p>Sélectionnez une thématique</p>
+        </aside>
+      </div>
+
+      <div class="search" id="museumsList"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
 </html>
