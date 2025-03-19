@@ -94,16 +94,55 @@ video {
 	font: inherit;
 	vertical-align: baseline;
 	text-decoration: none;
+	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 /* HEADER */
-header {
+header{
 	display: flex;
+	align-items: center;
 	background-color: var(--firstColor);
+	height: 10vh;
 }
-
-header>img {
-	width: 100px;
+header #logo{
+	width: auto;
+	margin-right: 1em;
+}
+header #logo img{
+	width: 3.5em;
+}
+header #titre{
+	flex-grow: 1; /* Permet au titre de prendre l'espace disponible */
+    text-align: left;
+}
+h1{
+	font-family:"Montserrat", sans-serif;
+	font-size: 1.75em;
+	color: var(--fourthColor);
+	font-weight: bold;
+}
+header nav{
+	margin-left: auto;
+	margin-right: 2em;
+}
+header nav ul{
+	display: flex;
+	list-style : none;
+	margin: 0;
+	padding : 0;
+}
+header nav li{
+	margin-left : 3em;
+	margin-right: 1em;
+	transition : transform 0.3s ease;
+}
+header nav li:hover{
+	transform : scale(1.1);
+	font-weight: bold;
+}
+header nav a{
+	text-decoration : none;
+	color: var(--fourthColor);
 }
 
 /*  MAIN */
@@ -118,7 +157,6 @@ header>img {
 	text-align: center;
 	height: 200px;
 }
-
 /* CARROUSEL IMAGES */
 #carrousel-images {
 	border: solid 1px black;
@@ -126,14 +164,13 @@ header>img {
 	margin: 2%;
 	border-radius: 10px;
 }
-
+/* CARDS */
 #cards-container {
 	display: flex;
-	flex-direction: row;
-	justify-content: space-evenly;
+	flex-wrap: wrap;
+	justify-content: space-around;
 	margin: 20px;
 }
-
 .card {
 	border: 2px solid var(--secondColor);
 	border-radius: 10px;
@@ -141,37 +178,59 @@ header>img {
 	padding: 6px;
 	background-color: var(--thirdColor);
 	color: var(--main);
+	text-align: center;
+	padding-top: 5em;
 	width: 30%;
-	height: 150px;
+	box-shadow: 4px 4px 7px rgba(244, 172, 50, 0.5);
+	aspect-ratio: 3 / 2; /* Maintient un ratio largeur/hauteur constant */
+	transition: transform 0.3s ease;
+	position: relative;
 }
-
+.card a{
+	position: absolute;
+	top: 0;
+	left:0;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: inherit;
+	z-index: 1;
+}
+.card:hover{
+	transform : scale(1.05);
+}
+#lorem{
+	height: 5vh;
+	margin: 3vw;
+	padding: 3vw;
+	border: 1px solid black;
+}
 
 /* FOOTER */
 footer {
 	display: flex;
+	justify-content: space-around;
+	align-items : center;
 	background-color: var(--fourthColor);
 	color: var(--main);
-	height: 50px;
-	position: absolute; bottom:100;
-	width: 100%;
+	height: 8vh;
 }
-
-
-#mapcontainer{
-	border: 1 solid black;
-	margin: 8px;
-	padding: 6px;
-	background-color: rgba(38, 0, 255, 0.267);
+footer #hautdepage a{
 	color: var(--main);
-	width: 30%;
-	height: 300px;
-	width: 100%;
-
+	text-align: end;
 }
 
-/*html {height:100%;}*/
+/* BOUTONS */
+#accueil{
+	background-color: var(--fourthColor);
+	color: var(--main);
+	border-radius: 10px;
+	border: solid 1px var(--firstColor);
+}
 
-body {min-height:100%;height:100%;width:100%}
-
-
-
+#divButton{
+	display: flex;
+	margin-top: 10px;
+	margin-right: 15px;
+	justify-content: flex-end;
+}

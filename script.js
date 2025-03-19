@@ -7,28 +7,33 @@ async function getMuseums() {
 	const data = await response.json();
 
 	console.log('🐤 musées :', data);
+	showMuseum(data);
 }
 getMuseums();
 
-function showMuseum(musee)
-{
-	listMuseum.innerHTML="";
-	const nameMuseum = document.createElement("h3");
-	listMuseum.appendChild(nameMuseum);
+function showMuseum(musee) {
+	listMuseum.innerHTML = "";
 
-	for (let i=0; i <musee.length; i++)
-	{
-	  const newDiv=	document.createElement("div");
-	  const museumName = document.createElement("h3");
-	  const museumCity = document.createElement("h3");
-	  newDiv.classList.add("museumDiv")
-	  museumName.classList.add("museumName");
-	  museumCity.classList.add("museumCity")
-	  listMuseum.appendChild(newDiv);
-	  newDiv.appendChild(museumName);
-	  newDiv.appendChild(museumCity);
+	for (let i = 0; i < musee.length; i++) {
+		const newDiv = document.createElement("div");
+		const museumName = document.createElement("h3");
+		const museumCity = document.createElement("h3");
+		const newImage = document.createElement("img");
 
-	}	
+		newDiv.classList.add("museumDiv")
+		museumName.classList.add("museumName");
+		museumCity.classList.add("museumCity");
+		newImage.classList.add("museumImage");
+
+		museumName.innerText= musee[i].nom_officiel;
+		museumCity.innerText = `${musee[i].ville} (${musee[i].code_postal})`;
+		newImage.src = './images/ticket_musee.png';
+		listMuseum.appendChild(newDiv);
+		newDiv.appendChild(museumName);
+		newDiv.appendChild(museumCity);
+		newDiv.appendChild(newImage)
+
+	}
 
 }
 
@@ -39,9 +44,7 @@ const placeholder = document.querySelector("#placeholder");
 const listMuseum = document.querySelector("#museumsList");
 
 
-async function getAllMuseums() {
-	
-}
+
 
 // HTML
 // const mainContainer = document.querySelector("#main-container");

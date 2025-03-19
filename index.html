@@ -1,45 +1,69 @@
 <!DOCTYPE html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Audiowide&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Amusée-vous</title>
+  </head>
 
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-	<title>Amusée-vous</title>
-</head>
+  <body>
+    <header id="hautDePage">
+      <div id="logo">
+        <img src="./images/img-musee1.png" alt="logo-site" />
+      </div>
+      <div id="titre">
+        <h1>Amusée-vous</h1>
+      </div>
+      <div id="navBar">
+        <nav>
+          <ul>
+            <li><a href="search.html">Recherche</a></li>
+            <li><a href="#">A propos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
 
-<body>
-	<header>
-		<img src="./images/img-musee1.png" alt="">
-		<p>Voici le logo</p>
-	</header>
+    <div id="main-container">
+      <div id="carrousel-images">
+        <p style="text-align: center">Carrousel de photos à intégrer</p>
+      </div>
 
+      <div id="intro">
+        <p>
+          Bienvenue sur notre site. Ceci est une introduction des plus
+          magnifiques.<br />Bonne journée et à bientôt !
+        </p>
+      </div>
 
-
-	<div id="main-container">
-
-		<div id="carrousel-images">
-			<p style="text-align: center;">Carrousel de photos à intégrer</p>
-		</div>
-
-		<div id="intro">
-			<p>Bienvenue sur notre site. Ceci est une introduction des plus magnifiques.<br>Bonne journée et à bientôt !
-			</p>
-		</div>
-
-		<div id="cards-container">
-			<div class="card" id="findMuseum">Trouver un musée autour de moi</div>
-			<div class="card" id="museumMap">Carte de France des musées</div>
-			<div class="card" id="placeholder">Placeholder</div>
-		</div>
-
+      <div id="cards-container">
+        <div class="card" id="findMuseum">
+          <a href="search.html"></a>
+		  Trouver un musée autour de moi
+        </div>
+        <div class="card" id="museumMap">Carte de France des musées</div>
+        <div class="card" id="placeholder">Placeholder</div>
+      </div>
+    </div>
+	<div id="lorem">
+		<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, maxime deleniti ipsam in iste, iure pariatur consectetur labore ducimus quos optio nulla, aspernatur repellat ab consequuntur veniam. Quae, facilis! Magni?. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa aliquid itaque, vitae quas reiciendis mollitia delectus veritatis, doloremque magni vero exercitationem est. Aspernatur obcaecati dolores commodi expedita reprehenderit veniam quis.</p>
 	</div>
 
-	<footer>
-		Source : Répertoire des Musées de France : base Muséofile
-	</footer>
+    <footer>
+      <div class="footer">
+        Source : API | Répertoire des Musées de France : base Muséofile
+      </div>
+      <div class="footer">© 2025</div>
+      <div class="footer" id="hautdepage">
+        <a href="#hautDePage"> ⬆︎ Haut de page</a>
+      </div>
+    </footer>
 
-	<script src="script.js"></script>
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
