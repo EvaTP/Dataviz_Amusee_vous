@@ -164,6 +164,75 @@ header nav a{
 	margin: 2%;
 	border-radius: 10px;
 }
+
+
+
+/* TEST CARROUSEL */
+
+.custom-slider { display: none; }
+.slide-container {
+    max-width: 800px;
+    position: relative;
+    margin: auto;
+}
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: white;
+    font-size: 30px;
+    background-color: rgba(0,0,0,0);
+    transition: background-color 0.6s ease;
+}
+.prev{ left: 15px; }
+.next { right: 15px; }
+.prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.5);
+}
+.slide-text {
+    position: absolute;
+	background-color: #003049;
+    color: var(--main);
+    font-size: 15px;
+    bottom: 3px;
+    width: 100%;
+    text-align: center;
+}
+.slide-img{
+	margin-top: 10px;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+}
+.slide-dot{ text-align: center; }
+.dot {
+    cursor: pointer;
+    height: 10px;
+    width: 10px;
+    margin: 0 2px;
+    background-color: #999999;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+.active, .dot:hover { background-color: #111111; }
+.fade {
+    animation-name: fade;
+    animation-duration: 1s;
+}
+@keyframes fade {
+    from {opacity: 0}
+    to {opacity: 1}
+}
+
 /* CARDS */
 #cards-container {
 	display: flex;
@@ -266,3 +335,4 @@ footer #hautdepage a{
 	margin-right: 15px;
 	justify-content: flex-end;
 }
+
