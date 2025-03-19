@@ -22,8 +22,8 @@ HTML/CSS
 
 ## Auteurs : 
 
-Ahmed ()
-Guilherme ()
+Ahmed AYARI (https://github.com/ahmedAyari94400)
+Guilherme FERNANDES (https://github.com/ggui26)
 Edwige SAVES (https://github.com/Edwige08)
 Eva THARRATS (https://github.com/EvaTP)
 
