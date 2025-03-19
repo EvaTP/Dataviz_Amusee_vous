@@ -35,12 +35,44 @@ function showMuseum(musee) {
 
 const findMuseum = document.querySelector("#findMuseum");
 const museumMap = document.querySelector("#museumMap");
-const placeholder = document.querySelector("#placeholder");
+const artists = document.querySelector("#artists");
 
 const listMuseum = document.querySelector("#museumsList");
+const listArtists = document.querySelector("#artists");
+async function getArtists() {
+	const response =await fetch(
+	  "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=artiste&where=artiste%20!%3D%20%22null%22&limit=20"
+	  		
+	);
+	const newData = await response.json;
+    showArtists(newData);
 
+}
+
+
+function showArtists()
+{
+	listArtists.innerHTML = "";
+
+  for (let i = 0; i < artists.length; i++) {
+    const divArtist = document.createElement("div");
+    const museumName = document.createElement("h3");
+    
+
+    divArtist.classList.add("artistDiv");
+    museumName.classList.add("museumName");
+    
+    museumName.innerText = artists[i].nom_officiel;
+	divArtist.innerText = artists[i].artiste;
+    
+    listArtists.appendChild(divArtist);
+    divArtist.appendChild(museumName);
+    
+  }
+}
 // HTML
 // const mainContainer = document.querySelector("#main-container");
 // const nomMusee = document.querySelector("#nom-musee");
 // const lieu = document.querySelector("#lieu");
 // console.log('🐯 main-container :', data);
+//https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=artiste&where=artiste%20!%3D%20%22null%22&limit=20
