@@ -40,11 +40,11 @@ const artists = document.querySelector("#artists");
 const listMuseum = document.querySelector("#museumsList");
 const listArtists = document.querySelector("#artists");
 async function getArtists() {
-	const response =await fetch(
+	const response = await fetch(
 	  "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=artiste&where=artiste%20!%3D%20%22null%22&limit=20"
 	  		
 	);
-	const newData = await response.json;
+	const newData = await response.json();
     showArtists(newData);
 
 }
