@@ -108,10 +108,11 @@ header #logo{
 	width: auto;
 	margin: 1.5em 1em 0 1em;
 	padding: 0.5em;
-	box-shadow: 5px 5px 6px rgba(0, 0, 0, 0.2);
+	box-shadow: 7px 7px 6px rgba(0, 0, 0, 0.2);
 	position: relative;
 	top: 0.25em;
 	margin-bottom: -10px;
+	border-radius: 50px;
 
 	/* width: auto;
 	margin: 1.5em 0.5em 0 1em;
@@ -128,7 +129,7 @@ header #titre{
 }
 h1{
 	font-family:"Montserrat", sans-serif;
-	font-size: 1.75em;
+	font-size: 2em;
 	color: var(--fourthColor);
 	font-weight: bold;
 }
@@ -292,17 +293,21 @@ header nav a{
 	padding : 1.5em;
 }
 #museumsList{
-	border : 1px solid black;	
+	display: grid;
+	grid-template-columns: repeat(2, 1fr); /* 2 colonnes de largeur égale */
+	gap: 1em; /* Espace entre les éléments de la grille */
+	/* border : 1px solid black;	 */
 	padding : 1em 1.5em;
 }
 
 #menuderoulant{
-	border : 1px solid black;	
+	/* border : 1px solid black;	 */
 	width: 25%;
 	margin-top: 1em;
 }
 aside{
-	box-shadow: 6px 6px 5px var(--fourthColor);
+	border: 1px solid var(--secondColor);
+	box-shadow: 7px 7px 5px var(--fourthColor);
 	color: var(--fourthColor);
 	padding: 0.25em;
 }
@@ -326,6 +331,12 @@ aside h2{
 	padding: 0.5em;
 	box-shadow: 5px 5px 9px var(--thirdColor);
 	background-color:antiquewhite;
+}
+.moreInfoButton{
+	margin-left: auto;
+	background-color: var(--fourthColor);
+	color: var(--firstColor);
+	border-radius: 0.25em;
 }
 .museumImage{
 	width: 90px;
@@ -351,6 +362,39 @@ aside h2{
 	font-style: italic;
 	text-align: justify;
 }
+
+/* Styles pour la modale */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  border-radius: 10px;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Assure que la modale est au-dessus des autres éléments */
+}
+  
+  .modal-content {
+	background-color: white;
+	border: 1px solid var(--fourthColor);
+	padding: 20px;
+	border-radius: 10px;
+	max-width: 600px;
+	position: relative;
+  }
+  
+  .close-button {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	font-size: 20px;
+	cursor: pointer;
+  }
 
 
 /* FOOTER */
