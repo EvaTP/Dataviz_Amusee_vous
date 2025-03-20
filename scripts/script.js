@@ -56,10 +56,10 @@ getArtists();
 function showArtists() {
   listArtists.innerHTML = "";
 
-  for (let i = 0; i < artists.length; i++) {
+  for (let i = 0; i < artists.results.length; i++) {
     const divArtist = document.createElement("div");
     divArtist.classList.add("artistDiv");
-    divArtist.innerText = artists[i].artiste;
+    divArtist.innerText = artists.results[i].artiste;
     listArtists.appendChild(divArtist);
   }
 }
