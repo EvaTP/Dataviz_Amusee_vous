@@ -1,17 +1,26 @@
-async function getMuseums() {
-  const response = await fetch(
-    "https://www.data.gouv.fr/fr/datasets/r/a5c5d76e-979a-4073-ba0d-0844bb3c1398"
-  );
-  const data = await response.json();
+// LES VARIABLES : ---------------------------------------------------------------
 
-  console.log("🐤 musées :", data);
+const findMuseum = document.querySelector("#findMuseum");
+const museumMap = document.querySelector("#museumMap");
+const artists = document.querySelector("#artists");
+const listMuseum = document.querySelector("#museumsList");
+const listArtists = document.querySelector("#artists");
+
+
+// LES FONCTIONS : ---------------------------------------------------------------
+
+  // Fonction qui affiche tous les musées (API muséophile) :
+async function getMuseums() {
+  const response = await fetch("https://www.data.gouv.fr/fr/datasets/r/a5c5d76e-979a-4073-ba0d-0844bb3c1398");
+  const data = await response.json();
   showMuseum(data);
 }
+  // Appel de cette fonction : 
 getMuseums();
 
+  // Fonction qui intègre dans le HTML nom du musée + ville + code postal + image générale :
 function showMuseum(musee) {
   listMuseum.innerHTML = "";
-
   for (let i = 0; i < musee.length; i++) {
     const newDiv = document.createElement("div");
     const museumName = document.createElement("h3");
@@ -33,41 +42,25 @@ function showMuseum(musee) {
   }
 }
 
-const findMuseum = document.querySelector("#findMuseum");
-const museumMap = document.querySelector("#museumMap");
-const artists = document.querySelector("#artists");
-
-const listMuseum = document.querySelector("#museumsList");
-const listArtists = document.querySelector("#artists");
+  // Fonction qui affiche tous les artistes (API joconde) :
 async function getArtists() {
-	const response = await fetch(
-	  "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=artiste&where=artiste%20!%3D%20%22null%22&limit=20"
-	  		
-	);
-	const newData = await response.json();
-    showArtists(newData);
-
+  const response = await fetch("https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=artiste&where=artiste%20!%3D%20%22null%22&limit=20");
+  const newData = await response.json();
+  showArtists(newData);
 }
 
+  // Appel de cette fonction : 
+getArtists();
 
-function showArtists()
-{
-	listArtists.innerHTML = "";
+  // Fonction qui intègre dans le HTML nom de l'artiste :
+function showArtists() {
+  listArtists.innerHTML = "";
 
   for (let i = 0; i < artists.length; i++) {
     const divArtist = document.createElement("div");
-    const museumName = document.createElement("h3");
-    
-
     divArtist.classList.add("artistDiv");
-    museumName.classList.add("museumName");
-    
-    museumName.innerText = artists[i].nom_officiel;
-	divArtist.innerText = artists[i].artiste;
-    
+    divArtist.innerText = artists[i].artiste;
     listArtists.appendChild(divArtist);
-    divArtist.appendChild(museumName);
-    
   }
 }
 // HTML
