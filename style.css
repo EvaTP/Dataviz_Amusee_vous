@@ -375,10 +375,10 @@ footer #hautdepage a{
 	border: solid 1px var(--firstColor);
 }
 
-#divButton{
+/* #divButton{
 	display: flex;
 	margin-top: 10px;
 	margin-right: 15px;
 	justify-content: flex-end;
-}
+} */
 
