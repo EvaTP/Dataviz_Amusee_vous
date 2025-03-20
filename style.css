@@ -293,7 +293,9 @@ header nav a{
 }
 #museumsList{
 	border : 1px solid black;	
+	padding : 1em;
 }
+
 #menuderoulant{
 	border : 1px solid black;	
 	width: 25%;
@@ -308,8 +310,35 @@ aside h2{
 	font-size: 1.5em;
 	margin: 0.50em 0.25em;
 }
+/* STYLES RECHERCHE PAR REGION / THEMATIQUE */
+
+#outputSearchByRegion{
+	border : 1px solid black;	
+	padding : 1em 1.5em;
+}
 .museumImage{
-	width: 100px;
+	width: 90px;
+}
+.museumName{
+	font-weight: bold;
+	color: var(--fourthColor);
+	font-size: 1.25em;
+	margin-top: 0.5em;
+}
+.museumAddress{
+	margin-top : 0.5em;
+}
+.museumResume{
+	font-size: 0.90em;
+	margin-top: 0.5em;
+	text-align: justify;
+}
+.themesMusees{
+	font-size: 0.80em;
+	margin-top : 0.5em;
+	margin-bottom : 1em;
+	font-style: italic;
+	text-align: justify;
 }
 
 
