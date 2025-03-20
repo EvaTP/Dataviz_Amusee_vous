@@ -293,7 +293,7 @@ header nav a{
 }
 #museumsList{
 	border : 1px solid black;	
-	padding : 1em;
+	padding : 1em 1.5em;
 }
 
 #menuderoulant{
@@ -312,9 +312,17 @@ aside h2{
 }
 /* STYLES RECHERCHE PAR REGION / THEMATIQUE */
 
-#outputSearchByRegion{
+/* #outputSearchByRegion{
 	border : 1px solid black;	
 	padding : 1em 1.5em;
+} */
+
+/* style de la div réponses recherche Région / Thématique */
+.museumDiv{
+	border : 1px solid var(--fourthColor);
+	border-radius: 8px;
+	margin : 0.5em;
+	padding: 0.5em;
 }
 .museumImage{
 	width: 90px;

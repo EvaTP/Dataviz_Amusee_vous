@@ -1,9 +1,11 @@
-const selectRegion = document.querySelector("#recherche-region");
-const outputSearchRegion = document.querySelector("#outputSearchByRegion")
+// LES VARIABLES : ---------------------------------------------------------------
 
-// async function getRegions(){
-//   const response = await fetch("")
-// }
+const selectRegion = document.querySelector("#recherche-region");
+// const listMuseum = document.querySelector("#museumsList");
+// const outputSearchRegion = document.querySelector("#outputSearchByRegion")
+
+
+// LES FONCTIONS : ---------------------------------------------------------------
 
 selectRegion.addEventListener('change', async function() {
   const url = this.options[this.selectedIndex].dataset.url;
@@ -14,7 +16,7 @@ selectRegion.addEventListener('change', async function() {
         showByRegion(data.results);
     } else {
         console.error("Erreur lors de la récupération des données :", response.status);
-        outputSearchRegion.innerHTML = "<p>Erreur lors de la récupération des données.</p>";
+        listMuseum.innerHTML = "<p>Erreur lors de la récupération des données.</p>";
     }
   }
 });
@@ -22,7 +24,7 @@ selectRegion.addEventListener('change', async function() {
 
 // recherche par région
 function showByRegion(region){
-	outputSearchRegion.innerHTML = "";
+	listMuseum.innerHTML = "";
 
   for (let i = 0; i < region.length; i++) {
     const divRegion = document.createElement("div");
@@ -48,7 +50,7 @@ function showByRegion(region){
     resume.innerText = `Histoire : ${region[i].histoire}`;
     themes.innerText = `Thématiques associées : ${region[i].themes}`;
     
-    outputSearchRegion.appendChild(divRegion);
+    listMuseum.appendChild(divRegion);
     divRegion.appendChild(museName);
     divRegion.appendChild(adresse);
     divRegion.appendChild(telephone);
