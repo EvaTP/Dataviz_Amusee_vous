@@ -272,6 +272,10 @@ header nav a{
 	color: inherit;
 	z-index: 1;
 }
+.card p {
+	font-size: 18px;
+	margin: 15px;
+}
 .card:hover{
 	transform : scale(1.05);
 }
@@ -281,7 +285,10 @@ header nav a{
 	padding: 3vw;
 	border: 1px solid black;
 }
-
+.img-card {
+	width: 90%;
+	margin: 15px;
+}
 /* PAGE SEARCH */
 
 #searchresults-container{
