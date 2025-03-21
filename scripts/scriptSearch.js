@@ -1,12 +1,15 @@
 // LES VARIABLES : ---------------------------------------------------------------
 
 const selectRegion = document.querySelector("#recherche-region");
+const selectTheme = document.querySelector("#recherche-thematique");
 // const listMuseum = document.querySelector("#museumsList");
 // const outputSearchRegion = document.querySelector("#outputSearchByRegion")
 
 
 // LES FONCTIONS : ---------------------------------------------------------------
 
+// RECHERCHE PAR REGION
+// --------------------
 selectRegion.addEventListener('change', async function() {
   const url = this.options[this.selectedIndex].dataset.url;
   if (url) {
@@ -22,14 +25,14 @@ selectRegion.addEventListener('change', async function() {
 });
 
 
-// recherche par région
 function showByRegion(region){
 	listMuseum.innerHTML = "";
 
   for (let i = 0; i < region.length; i++) {
-    
     const divRegion = document.createElement("div");
     const museName = document.createElement("h3");
+    const museCity = document.createElement("h3");
+    const newImageRegion = document.createElement("img");
     const moreInfoButton = document.createElement("button");
 
     // const divRegion = document.createElement("div");
@@ -42,6 +45,8 @@ function showByRegion(region){
     
     divRegion.classList.add("museumDiv");
     museName.classList.add("museumName");
+    museCity.classList.add("museumCity");
+    newImageRegion.classList.add("museumImage");
     moreInfoButton.classList.add("moreInfoButton");
 
     // adresse.classList.add("museumAddress");
@@ -51,8 +56,9 @@ function showByRegion(region){
     // themes.classList.add("themesMusees");
 
     museName.innerText = region[i].nom_officiel;
+    museCity.innerText = region[i].ville;
+    newImageRegion.src = "./images/ticket_musee.png";
     moreInfoButton.innerText = "En savoir +";
-
 
     // museName.innerText = region[i].nom_officiel;
     // adresse.innerText = `${region[i].adresse},${region[i].code_postal}, ${region[i].ville}`;
@@ -61,16 +67,18 @@ function showByRegion(region){
     // resume.innerText = `Histoire : ${region[i].histoire}`;
     // themes.innerText = `Thématiques associées : ${region[i].themes}`;
 
-  // Ajouter un gestionnaire d'événements pour le bouton "En savoir plus"
-  moreInfoButton.addEventListener("click", () => {
-    openModal(region[i]);
-  });
+
+      // Ajouter un gestionnaire d'événements pour le bouton "En savoir plus"
+      moreInfoButton.addEventListener("click", () => {
+        openModal(region[i]);
+      });
 
     listMuseum.appendChild(divRegion);
     divRegion.appendChild(museName);
+    divRegion.appendChild(museCity);
+    divRegion.appendChild(newImageRegion);
     divRegion.appendChild(moreInfoButton);
  
-
     // listMuseum.appendChild(divRegion);
     // divRegion.appendChild(museName);
     // divRegion.appendChild(adresse);
@@ -81,9 +89,7 @@ function showByRegion(region){
   }
 }
 
-
-
-// Fonction pour ouvrir la modale
+// Fonction pour ouvrir la MODALE REGION
 function openModal(museum) {
   const modal = document.createElement("div");
   modal.classList.add("modal");
@@ -114,5 +120,57 @@ function openModal(museum) {
   modalContent.appendChild(museumDetails);
   modal.appendChild(modalContent);
   document.body.appendChild(modal);
+}
+
+
+
+// RECHERCHE PAR THEMATIQUE
+// ------------------------
+
+selectTheme.addEventListener('change', async function() {
+  const url = this.options[this.selectedIndex].dataset.url;
+  if (url) {
+    const response = await fetch(url);
+    if (response.ok) {
+        const data = await response.json();
+        showByTheme(data.results);
+    } else {
+        console.error("Erreur lors de la récupération des données :", response.status);
+        listMuseum.innerHTML = "<p>Erreur lors de la récupération des données.</p>";
+    }
+  }
+});
+
+
+function showByTheme(theme){
+	listMuseum.innerHTML = "";
+
+  for (let i = 0; i < theme.length; i++) {
+    const divTheme = document.createElement("div");
+    const museNameTheme = document.createElement("h3");
+    const museCityTheme = document.createElement("h3");
+    const newImageTheme = document.createElement("img");
+    const moreInfoButtonTheme = document.createElement("button");
+    
+    divTheme.classList.add("museumDiv");
+    museNameTheme.classList.add("museumName");
+    museCityTheme.classList.add("museumCity");
+    newImageTheme.classList.add("museumImage");
+    moreInfoButtonTheme.classList.add("moreInfoButton");
+
+    museNameTheme.innerText = theme[i].nom_officiel;
+    museCityTheme.innerText = theme[i].ville;
+    newImageTheme.src = "./images/ticket_musee.png";
+    moreInfoButtonTheme.innerText = "En savoir +";
+
+
+//   // Ajouter un gestionnaire d'événements pour le bouton "En savoir plus"
+//   moreInfoButtonTheme.addEventListener("click", () => {
+//     openModal(domaine_thematique[i]);
+//   });
+//     listMuseum.appendChild(divTheme);
+//     divTheme.appendChild(museNameTheme);
+//     divTheme.appendChild(moreInfoButtonTheme);
+  }
 }
 
