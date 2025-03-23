@@ -6,7 +6,52 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
    <title>Map musées</title>
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+   <script  src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+         <style>
+            #introcontainer {
+               padding: 50px;
+            }
+   
+            #mapfiltercontainer {
+               display: flex;
+               /* Utilisation de flexbox pour aligner la carte et le filtre côte à côte */
+               justify-content: space-between;
+               /* Ajout d'espace entre la carte et le filtre */
+               align-items: flex-start;
+               /* Aligner les éléments en haut */
+               padding: 20px;
+               margin: 10px;
+               
+               border: 3px solid #ce1b1b;
+               border-radius: 10px;
+               height: 600px;
+               overflow:hidden 
+            }
+   
+            #textemap {
+               padding: 20px;
+               border: 3px solid black;
+            }
+   
+   
+            #mapid {
+               
+               height: 600px;
+               width: 65%;
+               border :#aa1bce
+            }
+
+            #filter {
+               border-color: #1b1ece;
+               font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+               
+            }
+            
+   
+            
+         </style>
 </head>
 
 <body>
