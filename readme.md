@@ -1,4 +1,4 @@
-# PROJET DATAVIZ - AMUSEE VOUS
+# PROJET DATAVIZ - A VOS MUSEES !
 
 ## Description du projet : 
 
