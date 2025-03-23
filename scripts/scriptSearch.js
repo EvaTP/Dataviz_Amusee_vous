@@ -108,7 +108,7 @@ selectTheme.addEventListener("change", showSearchResults);
     // themes.classList.add("themesMusees");
 
     museName.innerText = region[i].nom_officiel;
-    museCity.innerText = region[i].ville;
+    museCity.innerText = `${region[i].ville} (${region[i].code_postal})`;
     newImageRegion.src = "./images/ticket_musee.png";
     moreInfoButton.innerText = "En savoir +";
 
@@ -155,13 +155,12 @@ function openModal(museum) {
 
   const museumDetails = document.createElement("div");
   museumDetails.innerHTML = `
-
     <h3 class="museumName">${museum.nom_officiel}</h3>
-    <p class="museumAddress">Adresse: ${museum.adresse}, ${museum.code_postal}, ${museum.ville}</p>
-    <p class="museumCity">Téléphone: ${museum.telephone || "Non disponible"}</p>
-    <p class="museumCity">Site web: ${museum.url || "Non disponible"}</p>
-    <p class="museumResume">Histoire: ${museum.histoire || "Non disponible"}</p>
-    <p class="themesMusees">Thèmes: ${museum.themes || "Non disponible"}</p>
+    <p class="museumAddress">Adresse : ${museum.adresse}, ${museum.code_postal}, ${museum.ville}</p>
+    <p class="museumCity">Téléphone : ${museum.telephone || "Non disponible"}</p>
+    <p class="museumCity">Site web : <a href=http://${museum.url}> ${museum.url || "Non disponible"}</a></p>
+    <p class="museumResume">Histoire : ${museum.histoire || "Non disponible"}</p>
+    <p class="themesMusees">Thèmes : ${museum.themes || "Non disponible"}</p>
   `;
 
   closeButton.addEventListener("click", () => {
@@ -172,6 +171,12 @@ function openModal(museum) {
   modalContent.appendChild(museumDetails);
   modal.appendChild(modalContent);
   document.body.appendChild(modal);
+
+  document.addEventListener('click', (event) => {
+    if (event.target == modal) {
+      modal.remove()
+    };
+  })
 }
 
 
