@@ -49,9 +49,9 @@ function showMuseum(musee) {
     subDiv2.appendChild(newImage);
     subDiv2.appendChild(plusInfosButton);
 
-    // plusInfosButton.addEventListener("click", () => {
-    //   openModal(musee[i]);
-    // });    
+    plusInfosButton.addEventListener("click", () => {
+      openModal(musee[i]);
+    });    
 
     // newDiv.appendChild(museumName);
     // newDiv.appendChild(museumCity);
