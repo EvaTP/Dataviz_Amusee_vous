@@ -1,17 +1,12 @@
+// LES VARIABLES : ---------------------------------------------------------------
 const listRegion = document.querySelector("#region");
-const region = document.querySelector("#region");
+const ctx = document.getElementById('myChart');
 
-
-
+// LES FONCTIONS : ---------------------------------------------------------------
 async function getRegions() {
   const response = await fetch("https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=count(*)%20AS%20total%2C%20region&group_by=region&limit=20");
   const newData = await response.json();
-
   console.log(newData);
-  
-
-
-  const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
     type: 'bar',
@@ -21,9 +16,7 @@ async function getRegions() {
         label: 'Nombre de musées',
         data: extractTotaux(newData),
         borderWidth: 1,
-       backgroundColor: 'rgb(67, 22, 38)',
-           
-        
+        backgroundColor: 'rgb(67, 22, 38)',
       }]
     },
     options: {
@@ -42,20 +35,18 @@ getRegions();
 // Fonction qui intègre dans le HTML nom de l'artiste :
 function extractRegions(region) {
 
-  let regionNames =[];
+  let regionNames = [];
   for (let i = 0; i < region.results.length; i++) {
-        regionNames[i] = region.results[i].region;
-        //ctx.fillStyle = "#6B2737"
+    regionNames[i] = region.results[i].region;
+    //ctx.fillStyle = "#6B2737"
   }
   return regionNames;
 }
 
-function extractTotaux(total)
-{
+function extractTotaux(total) {
   let totalMuseums = [];
-  for (let  i=0; i< total.results.length; i++)
-  {
-    totalMuseums[i] = total.results[i].total; 
+  for (let i = 0; i < total.results.length; i++) {
+    totalMuseums[i] = total.results[i].total;
   }
   return totalMuseums;
 }
