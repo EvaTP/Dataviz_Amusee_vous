@@ -32,15 +32,83 @@
       <div class="search" id="menuderoulant">
         <aside>
           <h2>🏛️  Recherche</h2>
-          
-          <label for="region-select">Sélectionnez une région:</label><br>
+          <br>
+
+          <label for="region-select">Sélectionnez une région :</label><br>
+          <select name="region-select" id="recherche-region">
+              <option value="">--Choisissez une option--</option>
+              <option value="where=region%3D%22Auvergne-Rhône-Alpes%22">Auvergne-Rhône-Alpes</option>
+              <option value="where=region%3D%22Bourgogne-Franche-Comté%22">Bourgogne-Franche-Comté</option>
+              <option value="where=region%3D%22Bretagne%22">Bretagne</option>
+              <option value="where=region%3D%22DROM%22OR%22COM%22">COM et DROM</option>
+              <option value="where=region%3D%22Centre-Val%20de%20Loire%22">Centre-Val de Loire</option>
+              <option value="where=region%3D%22Corse%22">Corse</option>
+              <option value="where=region%3D%22Grand%20Est%22">Grand Est</option>
+              <option value="where=region%3D%22Hauts-de-France%22">Hauts-de-France</option>
+              <option value="where=region%3D%22Ile-de-France%22">Ile-de-France</option>
+              <option value="where=region%3D%22Normandie%22">Normandie</option>
+              <option value="where=region%3D%22Nouvelle-Aquitaine%22">Nouvelle-Aquitaine</option>
+              <option value="where=region%3D%22Occitanie%22">Occitanie</option>
+              <option value="where=region%3D%22Pays-de-la-Loire%22">Pays-de-la-Loire</option>
+              <option value="where=region%3D%22Provence-Alpes-Côte%20d%27Azur%22">Provence-Alpes-Côte d'Azur</option>
+          </select>
+          <br><br><br>
+
+          <label for="theme-select">Sélectionnez une thématique :</label><br>
+          <select name="theme-select" id="recherche-thematique">
+              <option value="">--Choisissez une option--</option>
+              <optgroup label="Thèmes">
+                  <option value="where=domaine_thematique%3D%22Archéologie%22">Archéologie</option>
+                  <!-- <option value="select=domaine_thematique&where=domaine_thematique%3D%22archéologie%20du%20bâti%22" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=domaine_thematique&where=domaine_thematique%3D%22archéologie%20du%20bâti%22">Archéologie du Bâti</option> -->
+                  <option value="where=domaine_thematique%3D%22Arts%20décoratifs%22">Arts décoratifs</option>
+                  <option value="where=domaine_thematique%3D%22Egyptien%22">Art Egyptien</option>
+                  <option value="where=domaine_thematique%3D%22Gallo-romain%22">Art Gallo-romain</option>
+                  <option value="where=domaine_thematique%3D%22Grec%22">Art Grec</option>   
+                  <!-- <option value="ArtsIslam" data-url="">Arts de l'Islam</option> -->
+                  <option value="where=domaine_thematique%3D%22Art%20moderne%20et%20contemporain%22">Art moderne et contemporain</option>
+                  <option value="where=domaine_thematique%3D%22Beaux-arts%22">Beaux-arts</option>
+                  <option value="where=domaine_thematique%3D%22Design%22%20OR%20domaine_thematique%3D%22Mode%22">Mode & Design</option>
+                  <option value="where=domaine_thematique%3D%22Ethnologie%22">Ethnologie</option>
+                  <option value="where=domaine_thematique%3D%22Protohistoire%22%20OR%20domaine_thematique%3D%22Histoire%22">Histoire & Protohistoire</option>
+                  <option value="where=domaine_thematique%3D%22Littérature%22">Littérature</option>
+                  <option value="where=domaine_thematique%3D%22Militaria%22">Militaria</option>
+                  <!-- <option value="MemoireEsclavageColonisation" data-url="/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=domaine_thematique&where=domaine_thematique%20like%20%22Esclavage%22">Esclavage, colonisation</option> -->
+                  <option value="where=domaine_thematique%3D%22Musique%20-%20chant%20-%20danse%22">Musique, chant, danse</option>
+                  <option value="where=domaine_thematique%3D%22Numismatique%22">Numismatique</option>
+                  <option value="where=domaine_thematique%3D%22Peinture%22">Peinture</option>
+                  <option value="where=domaine_thematique%3D%22Photographie%22">Photographie</option>
+                  <option value="where=domaine_thematique%3D%22Sciences%20de%20la%20nature%22">Sciences de la nature</option>
+                  <option value="where=domaine_thematique%3D%22Sciences%20fondamentales%22">Sciences fondamentales</option>
+                  <option value="where=domaine_thematique%3D%22Technique%20et%20industrie%22">Technique et Industrie</option>
+              </optgroup>
+              <optgroup label="Continents">
+                  <option value="select=domaine_thematique&where=domaine_thematique%3D%22Afrique%22">Afrique</option>
+                  <option value="select=domaine_thematique&where=domaine_thematique%3D%22Amérique%22">Amérique</option>
+                  <option value="select=domaine_thematique&where=domaine_thematique%3D%22Asie%22">Asie</option>
+                  <option value="select=domaine_thematique&where=domaine_thematique%3D%22Océanie%22">Océanie</option>
+              </optgroup>
+          </select>
+          <br><br><br>
+        </aside>
+      </div>
+      <!-- partie droite -->
+      <div class="search" id="museumsList"></div>
+    </div>
+
+
+
+
+
+
+  <!-- ANCIENS menus déroulants avec tout le chemin en dur -->
+
+          <!-- <label for="region-select">Sélectionnez une région:</label><br>
             <select name="region-select" id="recherche-region">
                 <option value="">--Choisissez une option--</option>
                 <option value="select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Auvergne-Rhône-Alpes%22" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records">Auvergne-Rhône-Alpes</option>
                 <option value="Bourgogne-Franche-Comté" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Bourgogne-Franche-Comté%22">Bourgogne-Franche-Comté</option>
-                <!-- <option value="Auvergne-Rhône-Alpes" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Auvergne-Rhône-Alpes%22">Auvergne-Rhône-Alpes</option>
-                <option value="Bourgogne-Franche-Comté" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Bourgogne-Franche-Comté%22">Bourgogne-Franche-Comté</option> -->
-                
+                <option value="Auvergne-Rhône-Alpes" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Auvergne-Rhône-Alpes%22">Auvergne-Rhône-Alpes</option>
+                <option value="Bourgogne-Franche-Comté" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Bourgogne-Franche-Comté%22">Bourgogne-Franche-Comté</option>
                 <option value="Bretagne" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Bretagne%22">Bretagne</option>
                 <option value="COM-DROM" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22DROM%22AND%22COM%22">COM et DROM</option>
                 <option value="Centre-Val de Loire" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=nom_officiel%2C%20adresse%2C%20code_postal%2C%20ville%2C%20departement%2C%20telephone%2C%20url%2C%20histoire%2C%20themes&where=region%3D%22Centre-Val%20de%20Loire%22">Centre-Val de Loire</option>
@@ -54,11 +122,11 @@
                 <option value="Pays-de-la-Loire" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?where=region%3D%22Pays-de-la-Loire%22">Pays-de-la-Loire</option>
                 <option value="Provence-Alpes-Côte d'Azur" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?where=region%3D%22Provence-Alpes-Côte%20d%27Azur%22">Provence-Alpes-Côte d'Azur</option>
             </select>
-            <br><br>
+            <br><br> -->
 
 
           <!-- <p>Sélectionnez une ville</p> -->
-          <br><br>
+          <!-- <br><br>
           <label for="theme-select">Sélectionnez une thématique:</label><br>
           <select name="theme-select" id="recherche-thematique">
               <option value="">--Choisissez une option--</option>
@@ -94,15 +162,11 @@
               <option value="Asie" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=domaine_thematique&where=domaine_thematique%3D%22Asie%22">Asie</option>
               <option value="Océanie" data-url="https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=domaine_thematique&where=domaine_thematique%3D%22Océanie%22">Océanie</option>
             </optgroup>
-          </select>
-          <br><br>
-        </aside>
-      </div>
-      <!-- partie droite -->
-      <div class="search" id="museumsList"></div>
-    </div>
+          </select> -->
 
-    <script src="./scripts/script.js"></script>
+
+
+    <!-- <script src="./scripts/script.js"></script> -->
     <script src="./scripts/scriptSearch.js"></script>
   </body>
 </html>
