@@ -6,7 +6,52 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
    <title>Map musées</title>
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+   <script  src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+         <style>
+            #introcontainer {
+               padding: 50px;
+            }
+   
+            #mapfiltercontainer {
+               display: flex;
+               /* Utilisation de flexbox pour aligner la carte et le filtre côte à côte */
+               justify-content: space-between;
+               /* Ajout d'espace entre la carte et le filtre */
+               align-items: flex-start;
+               /* Aligner les éléments en haut */
+               padding: 20px;
+               margin: 10px;
+               
+               border: 3px solid #ce1b1b;
+               border-radius: 10px;
+               height: 600px;
+               overflow:hidden 
+            }
+   
+            #textemap {
+               padding: 20px;
+               border: 3px solid black;
+            }
+   
+   
+            #mapid {
+               
+               height: 600px;
+               width: 65%;
+               border :#aa1bce
+            }
+
+            #filter {
+               border-color: #1b1ece;
+               font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+               
+            }
+            
+   
+            
+         </style>
 </head>
 
 <body>
@@ -26,10 +71,10 @@
           </ul>
         </nav>
       </div>
-    </header>
-
-   <div id="container">
-      <h1 id="maptitle">Carte Interactive des Musées en France 🏛️</h1>
+   </header>
+   
+   <div id="introcontainer">
+      <h1 id="title">Carte Interactive des Musées en France 🏛️</h1>
       <p id="textemap">Bienvenue sur notre carte interactive des musées de France, votre porte d'entrée vers un voyage
          captivant à travers l'art,
          l'histoire et la culture. Que vous soyez un passionné d'art, un féru d'histoire ou simplement à la recherche
@@ -49,48 +94,39 @@
          Notre carte des musées est votre compagnon idéal pour une exploration culturelle inoubliable.
       </p>
       <br>
+   </div>
 
-
-
-      <iframe id="map"
-         src="https://www.openstreetmap.org/export/embed.html?bbox=-8.942871093750002%2C39.87601941962116%2C13.029785156250002%2C50.90303283111257&amp;layer=mapnik"
-         style="border: 3px solid rgb(0, 0, 0)"></iframe>
-      <style>
-         #map {
-            height: 600px;
-            width: 65%;
-            padding: 20px;
-         }
-
-         #textemap {
-            padding: 20px;
-            border: 3px solid black;
-         }
-
-         #container {
-            padding: 50px;
-         }
-
-         #filter {
-            position: relative}
-      </style>
-
-      <br />
-
-      </select id="filter">Filtrer votre recherche/
-      <option>Histoire</option>
-      <option>Art</option>
-      </select>
-      ><select name="" id=""></select>
-      <footer>
-         <div class="footer">
-            Source : API | Répertoire des Musées de France : base Muséofile
-         </div>
-         <div class="footer">© 2025</div>
-         <div class="footer" id="hautdepage">
-            <a href="#hautDePage"> ⬆︎ Haut de page</a>
-         </div>
-      </footer>
+   <div id="mapfiltercontainer">
+      <div id="mapid"></div>
+      <div id="filtercontainer">
+         <label for="filter">Choisissez un thème:</label>
+         <select id="filter">
+            <option>TOUT</option>
+            <option>Histoire</option>
+            <option>Ethnologie</option>
+            <option>Technique et industrie</option>
+            <option>Arts décoratifs</option>
+            <option>Art moderne et contemporain</option>
+            <option>Photographie</option>
+            <option>Beaux-arts</option>
+            <option>Archéologie</option>
+            <option>Sciences de la nature</option>
+            <option>Littérature</option>
+            <option>Sciences fondamentales</option>
+            <option></option>
+            <option></option>
+         </select>
+      </div>
+      
+   </div>
+   <footer>
+      <div class="footer">
+         Source : API | Répertoire des Musées de France : base Muséofile
+      </div>
+      <div class="footer">© 2025</div>
+      <div class="footer" id="hautdepage">
+         <a href="#hautDePage"> ⬆︎ Haut de page</a>
+      </div>
+   </footer>
+   <script src="scripts/map.js"></script>
 </body>
-
-</html>

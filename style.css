@@ -4,6 +4,7 @@
 	--secondColor: #F4AC32;
 	--thirdColor: #6B2737;
 	--fourthColor: #003049;
+	--adaColor : #fdd8d0;
 }
 
 /* Nous cassons (reset) l'effet d'héritage pour toutes les balises susceptibles d'être concernées */
@@ -95,8 +96,13 @@ video {
 	vertical-align: baseline;
 	text-decoration: none;
 	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	box-sizing: border-box;
 }
-
+body{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
 /* HEADER */
 header{
 	display: flex;
@@ -330,6 +336,11 @@ aside h2{
 	padding : 1em 1.5em;
 } */
 
+.compteurReponses{
+	font-size: 2em;
+	color: var(--fourthColor);
+}
+
 /* style de la div réponses recherche Région / Thématique */
 .museumDiv{
 	display: flex;
@@ -418,6 +429,7 @@ aside h2{
 
 
 /* FOOTER */
+
 footer {
 	display: flex;
 	justify-content: space-around;
@@ -446,3 +458,61 @@ footer #hautdepage a{
 	justify-content: flex-end;
 } */
 
+/* PAGE A PROPOS (ABOUT) */
+
+#main-container-welcome{
+	margin: 1.5em;
+}
+#main-container-about{
+	margin: 0 1.5em;
+	padding: 1em;
+}
+.about{
+	padding: 1em;
+}
+.about span{
+	color: var(--adaColor);
+	font-weight: bold;
+	font-size: larger;
+}
+#bienvenue{
+	margin: 5em 1em 1em 2em;
+}
+.flex{
+	display: flex;
+	flex-direction : row;
+	justify-content:space-around;
+	padding : 0.50em;
+}
+.about p:first-of-type{
+	font-weight: bold;
+	margin-bottom: 1em;
+}
+#divImageAbout img{
+	max-width: 300px;
+    height: auto;
+    object-fit: contain; /* Conserver les proportions */
+	margin-top: -2em;
+}
+#merci{
+	font-size: 1.25em;
+	padding : 1em;
+}
+#merci h2{
+	text-align: center;
+	font-size: 1.75em;
+	margin: 2em;
+}
+#git{
+	display: flex;
+	flex-direction: row;
+	justify-content:flex-start;
+	padding: 0 1em;
+	margin-left: 1em;
+}
+#icone-git{
+	margin-right: 2em;
+}
+#icone-git img{
+	margin-top: 0.75em;
+}
