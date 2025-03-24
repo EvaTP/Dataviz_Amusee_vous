@@ -138,8 +138,8 @@ selectTheme.addEventListener("change", showSearchResults);
     // divRegion.appendChild(siteWeb);
     // divRegion.appendChild(resume);
     // divRegion.appendChild(themes);
-  }
-}
+  
+
 
 // Fonction pour ouvrir la MODALE REGION
 function openModal(museum) {
