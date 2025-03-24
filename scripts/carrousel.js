@@ -1,10 +1,9 @@
-
 let slideIndex = 1;
+const slides = document.getElementsByClassName("custom-slider");
+const dots = document.getElementsByClassName("dot");
 
 function showSlides(n) {
     let i;
-    const slides = document.getElementsByClassName("custom-slider");
-    const dots = document.getElementsByClassName("dot");
     if (n > slides.length) {
         slideIndex = 1;
     }
@@ -30,3 +29,9 @@ function currentSlide(n) {
 }
 
 showSlides(slideIndex);
+
+const changeImg = () => {
+    plusSlides(1);
+}
+
+setInterval(changeImg, 5000);
