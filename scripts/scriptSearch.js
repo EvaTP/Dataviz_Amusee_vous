@@ -22,6 +22,7 @@ getMuseums();
 
 // Fonction qui intègre dans le HTML nom du musée + ville + code postal + image générale :
 function showMuseum(museum) {
+  document.querySelector("#loader").style.display = "none";
   listMuseum.innerHTML = "";
   for (let i = 0; i < museum.length; i++) {
     const newDiv = document.createElement("div");
