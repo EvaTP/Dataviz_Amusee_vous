@@ -267,6 +267,9 @@ async function showSearchResults() {
   }
   const response = await fetch(fullUrl);
 
+  const promise = await fetch("https://www.data.gouv.fr/fr/datasets/r/ea98fdcb-5c24-4646-9823-c6d2914d0b36");
+  const acrList = await promise.json();
+
   if (!response.ok) {
     console.error(
       "Erreur lors de la récupération des données :",
@@ -288,7 +291,7 @@ async function showSearchResults() {
   if (resultCount === 0) {
     listMuseum.innerHTML += "<p>Aucun résultat pour votre recherche.</p>";
   } else {
-    showMuseum(searchResults);
+    showMuseum(searchResults, acrList);
   }
   // Ajoute le compteur avant la liste des musées
   resultsCountDiv.innerText = "";
