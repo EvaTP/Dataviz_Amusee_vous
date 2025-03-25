@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="fr">
 
+
 <head>
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link rel="stylesheet" href="style.css">
    <title>Map musées</title>
-   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-   integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
    <script  src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
          <style>
             #introcontainer {
                padding: 50px;
+               border-radius: 30px;
+               border : 3px solid rgb(0, 14, 75)
             }
-   
+            
+            #textemap {
+               padding: 20px;
+               border: 3px solid rgb(0, 14, 75);
+            }
             #mapfiltercontainer {
                display: flex;
                /* Utilisation de flexbox pour aligner la carte et le filtre côte à côte */
@@ -24,28 +30,28 @@
                padding: 20px;
                margin: 10px;
                
-               border: 3px solid #ce1b1b;
-               border-radius: 10px;
+               border: 3px solid #080053;
+               border-radius: 30px;
                height: 600px;
                overflow:hidden 
             }
-   
-            #textemap {
-               padding: 20px;
-               border: 3px solid black;
+
+            #filtercontainer {
+               border : 3px solid rgb(0, 14, 75)
             }
    
    
             #mapid {
                
-               height: 600px;
+               height: 550px;
                width: 65%;
-               border :#aa1bce
+               border-radius: 30px;
             }
 
-            #filter {
+            #themes {
                border-color: #1b1ece;
-               font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+               font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+               
                
             }
             
@@ -99,22 +105,102 @@
    <div id="mapfiltercontainer">
       <div id="mapid"></div>
       <div id="filtercontainer">
-         <label for="filter">Choisissez un thème:</label>
-         <select id="filter">
-            <option>TOUT</option>
-            <option>Histoire</option>
-            <option>Ethnologie</option>
-            <option>Technique et industrie</option>
-            <option>Arts décoratifs</option>
-            <option>Art moderne et contemporain</option>
-            <option>Photographie</option>
-            <option>Beaux-arts</option>
-            <option>Archéologie</option>
-            <option>Sciences de la nature</option>
-            <option>Littérature</option>
-            <option>Sciences fondamentales</option>
-            <option></option>
-            <option></option>
+         <label for="theme-select">Choisissez un thème:</label>
+         <select id="Themes">
+            <option value="">Thèmes</option>
+            <option
+                value="where=domaine_thematique%3D%22archéologie%20du%20bâti%22OR%22archéologie%22">
+                Archéologie & Archéologie du Bâti
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Arts%20décoratifs%22">
+                Arts décoratifs
+              </option>
+              <option value="where=domaine_thematique%3D%22Egyptien%22">
+                Art Egyptien
+              </option>
+              <option value="where=domaine_thematique%3D%22Gallo-romain%22">
+                Art Gallo-romain
+              </option>
+              <option value="where=domaine_thematique%3D%22Grec%22">
+                Art Grec
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Arts%20de%20l%27Islam%22&refine=domaine_thematique%3A%22Arts%20de%20l%27Islam%22">
+                Arts de l'Islam
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Art%20moderne%20et%20contemporain%22">
+                Art moderne et contemporain
+              </option>
+              <option value="where=domaine_thematique%3D%22Beaux-arts%22">
+                Beaux-arts
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Design%22%20OR%20domaine_thematique%3D%22Mode%22">
+                Mode & Design
+              </option>
+              <option value="where=domaine_thematique%3D%22Ethnologie%22">
+                Ethnologie
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Protohistoire%22%20OR%20domaine_thematique%3D%22Histoire%22">
+                Histoire & Protohistoire
+              </option>
+              <option value="where=domaine_thematique%3D%22Littérature%22">
+                Littérature
+              </option>
+              <option value="where=domaine_thematique%3D%22Militaria%22">
+                Militaria
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Mémoire%20de%20l%27esclavage%22OR%22Esclavage%2C%20société%20de%20plantation%2C%20histoire%20de%20La%20Réunion%2C%20colonisation%2C%20industrie%20sucrière%22">
+                Esclavage, colonisation
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Musique%20-%20chant%20-%20danse%22">
+                Musique, chant, danse
+              </option>
+              <option value="where=domaine_thematique%3D%22Numismatique%22">
+                Numismatique
+              </option>
+              <option value="where=domaine_thematique%3D%22Peinture%22">
+                Peinture
+              </option>
+              <option value="where=domaine_thematique%3D%22Photographie%22">
+                Photographie
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Sciences%20de%20la%20nature%22"
+              >
+                Sciences de la nature
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Sciences%20fondamentales%22">
+                Sciences fondamentales
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Technique%20et%20industrie%22">
+                Technique et Industrie
+              </option>
+            </optgroup>
+            <optgroup label="Continents">
+              <option
+                value="where=domaine_thematique%3D%22Afrique%22">
+                Afrique
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Amérique%22">
+                Amériques
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Asie%22">
+                Asie
+              </option>
+              <option
+                value="where=domaine_thematique%3D%22Océanie%22">
+                Océanie
+              </option>
          </select>
       </div>
       
