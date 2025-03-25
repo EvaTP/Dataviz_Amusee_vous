@@ -166,8 +166,9 @@ header nav a {
 	background-color: #003049;
 	color: var(--main);
 	font-size: 18px;
-	bottom: 3px;
+	bottom: 0px;
 	width: 100%;
+	padding: 10px 0;
 	text-align: center;
 }
 .slide-img {
@@ -261,7 +262,7 @@ header nav a {
 }
 
 .img-card {
-	width: 90%;
+	width: 85%;
 	margin: 15px;
 }
 
