@@ -21,10 +21,19 @@ html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 }
 
 body {
+	position: relative;
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	margin: 0;
 }
+
+
+body {
+	 /* Nécessaire pour le positionnement absolu du footer */
+	min-height: 100vh;
+	margin: 0; /* Supprime les marges par défaut du body */
+  }
 
 /* HEADER */
 header {
@@ -483,6 +492,9 @@ aside h2 {
 /* FOOTER */
 
 footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
@@ -504,17 +516,11 @@ footer #hautdepage a {
 	border: solid 1px var(--firstColor);
 }
 
-/* #divButton{
-	display: flex;
-	margin-top: 10px;
-	margin-right: 15px;
-	justify-content: flex-end;
-} */
-
 /* PAGE A PROPOS (ABOUT) */
 
 #main-container-welcome {
 	margin: 1.5em;
+	flex: 1; 
 }
 
 #main-container-about {
@@ -559,6 +565,7 @@ footer #hautdepage a {
 #merci {
 	font-size: 1.25em;
 	padding: 1em;
+	margin-bottom : 3em;
 }
 
 #merci h2 {
