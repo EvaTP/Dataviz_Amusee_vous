@@ -205,13 +205,13 @@ function openModal(museum, acr) {
   <p class="museumCity">Site web : <a href=http://${museum.url}> ${museum.url || "Non disponible"}</a></p>
   <p class="museumResume">Histoire : ${museum.histoire || "Non disponible"}</p>
   <p class="themesMusees">Thèmes : ${museum.themes || "Non disponible"}</p>
-  <br><hr><br>
+  <br><div class="separator"></div><br>
   `;
 
   const detailsACR = document.createElement('div');
   detailsACR.classList.add('detailsACRModale');
   detailsACR.innerHTML = `
-  <h3 class="ACRTitle"><strong>Vous trouverez ci-dessous les 3 architectures contemporaines remarquables les plus proches de ce musée : </strong></h3><br>
+  <h3 class="ACRTitle"><strong>Pour compléter votre visite, <br>vous trouverez ci-dessous les 3 architectures contemporaines remarquables les plus proches de ce musée : </strong></h3><br>
   <h4 class="ACRName"><strong>${tableauDistances[0].titre_courant}</strong></h4>
   <p class="CommuneACR">${tableauDistances[0].commune}</p>
   <p class="descriptionACR">${tableauDistances[0].description || ""}</p>

@@ -268,6 +268,16 @@ header nav a {
 
 /* PAGE SEARCH */
 
+#titrePageSearch{
+	font-size: 2em;
+	color: var(--fourthColor);
+	font-weight: bold;
+	margin: 0.50em 4em;
+}
+#titleandCount p{
+	text-align: center;
+
+}
 #loader {
 	border: 16px solid #f3f3f3;
 	border-radius: 50%;
@@ -288,10 +298,6 @@ header nav a {
 	0% { transform: rotate(0deg); }
 	100% { transform: rotate(360deg); }
   }
-
-
-
-
 
 #searchresults-container {
 	border: 1px solid black;
@@ -420,9 +426,12 @@ aside h2 {
 	/* Assure que la modale est au-dessus des autres éléments */
 }
 
+/* modale bases Muséophile & ACR */
 .modal-content {
-	background-color: white;
-	border: 1px solid var(--fourthColor);
+	background-color: var(--secondColor);
+	border: 1px solid var(--thirdColor);
+	color: var(--fourthColor);
+	font-size: 1.25em;
 	padding: 20px;
 	border-radius: 10px;
 	max-width: 600px;
@@ -430,7 +439,39 @@ aside h2 {
 	overflow: scroll;
 	position: relative;
 }
-
+/* barre de séparation "drapeau français" */
+.separator {
+	height: 8px;
+	width: 80%;
+	background-image: linear-gradient(
+		to right,
+		#0055A4 33.33%, /* Bleu */
+		white 33.33%, white 66.66%, /* Blanc */
+		#EF4135 66.66% /* Rouge */
+	  );
+	margin: 20px auto;
+  }
+.detailsACRModale{
+	background-color: var(--fourthColor);
+	border: 1px solid var(--thirdColor);
+	color: var(--main);
+	font-size: 0.75em;
+	padding: 20px;
+	border-radius: 10px 0 10px 0;
+	max-width: 600px;
+	max-height: 90%;
+	overflow: scroll;
+	position: relative;
+}
+.ACRTitle{
+	text-align: center;
+}
+.ACRName{
+	margin: 0.50em auto;
+}
+.descriptionACR{
+	text-align: justify;
+}
 .close-button {
 	position: absolute;
 	top: 10px;
