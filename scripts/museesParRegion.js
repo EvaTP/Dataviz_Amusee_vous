@@ -1,17 +1,17 @@
+// LES VARIABLES : ---------------------------------------------------------------
 const listRegion = document.querySelector("#region");
 const region = document.querySelector("#region");
-const ctx = document.getElementById('myChart');
+
 
 
 async function getRegions() {
   const response = await fetch("https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?select=count(*)%20AS%20total%2C%20region&group_by=region&limit=20");
   const newData = await response.json();
-
   console.log(newData);
+  
 
 
-
-
+  const ctx = document.getElementById('myChart');
 
   new Chart(ctx, {
     type: 'bar',
@@ -21,9 +21,9 @@ async function getRegions() {
         label: 'Nombre de musées',
         data: extractTotaux(newData),
         borderWidth: 1,
-        backgroundColor: 'rgb(67, 22, 38)',
-
-
+       backgroundColor: 'rgb(67, 22, 38)',
+           
+        
       }]
     },
     options: {
@@ -44,32 +44,19 @@ function extractRegions(region) {
 
   let regionNames = [];
   for (let i = 0; i < region.results.length; i++) {
-    if (region.results[i].region != "COM")
-      regionNames[i] = region.results[i].region;
-
-    if (region.results[i].region == "DROM")
-      regionNames[i] = "Outre Mer";
-
+        regionNames[i] = region.results[i].region;
+        //ctx.fillStyle = "#6B2737"
   }
   console.log('debug : ', regionNames)
   return regionNames;
 }
 
-function extractTotaux(data) {
+function extractTotaux(total)
+{
   let totalMuseums = [];
-  let totalCom =[];
-  for (let i = 0; i < data.results.length; i++) {
-    if (data.results[i].region =="COM" )
-      {
-         totalCom = data.results[i].total;
-        
-      } 
-     else if (data.results[i].region =="DROM")
-        {
-          data.results[i].total = data.results[i].total + totalCom;
-        } 
-    totalMuseums[i] = data.results[i].total;
-
+  for (let  i=0; i< total.results.length; i++)
+  {
+    totalMuseums[i] = total.results[i].total; 
   }
   return totalMuseums;
 }
