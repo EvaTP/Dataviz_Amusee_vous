@@ -9,17 +9,28 @@ async function getRegions() {
   const newData = await response.json();
   console.log(newData);
 
+  let regionList = newData.results.map(e => e.region)
+  let totalList = newData.results.map(e => e.total)
 
+  const comIndex = regionList.indexOf('COM')
+  const dromIndex = regionList.indexOf('DROM')
+  regionList[dromIndex] = "Outre-mer" 
+  totalList[dromIndex] = totalList[dromIndex] + totalList[comIndex]
+  regionList.splice(comIndex, 1)
+  totalList.splice(comIndex, 1)
+
+  console.log(regionList)
+  console.log(totalList)
 
 
 
   new Chart(ctx, {
     type: 'bar',
     data: {
-      labels: extractRegions(newData),
+      labels: regionList,
       datasets: [{
         label: 'Nombre de musées',
-        data: extractTotaux(newData),
+        data: totalList,
         borderWidth: 1,
         backgroundColor: 'rgb(67, 22, 38)',
 
@@ -39,40 +50,8 @@ async function getRegions() {
 // Appel de cette fonction : 
 getRegions();
 
-// Fonction qui intègre dans le HTML nom de l'artiste :
-function extractRegions(region) {
 
-  let regionNames = [];
-  for (let i = 0; i < region.results.length; i++) {
-    if (region.results[i].region != "COM")
-      regionNames[i] = region.results[i].region;
 
-    if (region.results[i].region == "DROM")
-      regionNames[i] = "Outre Mer";
-
-  }
-  console.log('debug : ', regionNames)
-  return regionNames;
-}
-
-function extractTotaux(data) {
-  let totalMuseums = [];
-  let totalCom =[];
-  for (let i = 0; i < data.results.length; i++) {
-    if (data.results[i].region =="COM" )
-      {
-         totalCom = data.results[i].total;
-        
-      } 
-     else if (data.results[i].region =="DROM")
-        {
-          data.results[i].total = data.results[i].total + totalCom;
-        } 
-    totalMuseums[i] = data.results[i].total;
-
-  }
-  return totalMuseums;
-}
 // HTML
 // const mainContainer = document.querySelector("#main-container");
 // const nomMusee = document.querySelector("#nom-musee");
