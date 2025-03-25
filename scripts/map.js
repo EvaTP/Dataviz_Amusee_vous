@@ -35,11 +35,18 @@ async function getMuseums() {
         museums.forEach(item => {
             const longitude = item.coordonnees.lon
             const latitude = item.coordonnees.lat
+            var marker = L.icon({
+                iconSize:     [20, 30], // size of the icon
+                shadowSize:   [50, 64], // size of the shadow
+                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+                shadowAnchor: [4, 62],  // the same for the shadow
+                popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+            });
             L.marker([latitude, longitude]).addTo(markerGroup)
                 .bindPopup("Nom: "+(item.nom_officiel? item.nom_officiel : "Non disponible" )+ "<br>"+
                     "Adresse: "+(item.adresse? item.adresse : "Non disponible" )+ "<br>"+
                     "Code postal: "+(item.code_postal ? item.code_postal : "Non disponible")+"<br>"+
-                    "Ville: "+(item.ville ? item.region : "Non disponible") +"<br>" +
+                    "Ville: "+(item.ville ? item.ville : "Non disponible") +"<br>" +
                     "Région: "+(item.region ? item.region : "Non disponible")+"<br>"+
                     "Département: "+(item.departement ? item.departement : "Non disponible")+"<br>"+
                     "Site Web: " + (item.url ? '<a href="http://' + item.url + '" target="_blank">' + item.url + '</a>' : "Non disponible"))
