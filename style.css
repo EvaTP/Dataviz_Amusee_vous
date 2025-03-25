@@ -582,3 +582,15 @@ footer #hautdepage a {
 #icone-git img {
 	margin-top: 0.75em;
 }
+
+#titreMuseesRegions{
+	text-align: center;
+	font-size: 2em;
+	font-weight: bold;
+	color: var(--fourthColor);
+}
+
+#canvas{
+	padding: 4em;
+	margin: 3em;
+}
