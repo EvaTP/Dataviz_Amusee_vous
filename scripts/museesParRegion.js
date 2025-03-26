@@ -22,7 +22,7 @@ async function getRegions() {
     data: {
       labels: regionList,
       datasets: [{
-        label: 'Nombre de musées',
+        // Supprimer ou laisser vide la propriété 'label' pour ne pas l'afficher
         data: totalList,
         borderWidth: 1,
         backgroundColor: 'rgb(107, 39, 55)',
@@ -32,6 +32,11 @@ async function getRegions() {
       scales: {
         y: {
           beginAtZero: true
+        }
+      },
+      plugins: {
+        legend: {
+          display: false // Désactive l'affichage de la légende
         }
       }
     }
