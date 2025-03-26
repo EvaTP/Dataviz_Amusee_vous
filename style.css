@@ -595,3 +595,10 @@ footer #hautdepage a {
 	padding: 4em;
 	margin: 3em;
 }
+
+#introMusee{
+	font-size: 1.5em;
+	color: var(--fourthColor);
+	margin-left: 5em;
+	margin-top: 2em;	
+}
