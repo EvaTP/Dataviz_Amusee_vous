@@ -5,19 +5,19 @@ const selectTheme = document.querySelector("#recherche-thematique");
 const listMuseum = document.querySelector("#museumsList");
 const resultsCountDiv = document.querySelector('#resultsCount');
 const apiUrl =
-  "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records";
+  "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?limit=100";
 
 // LES FONCTIONS : ---------------------------------------------------------------
 
-// Fonction qui affiche TOUS LES MUSEES (APIs muséophile + ACR) :
+// Fonction qui affiche TOUS LES MUSEES (API muséophile) :
 async function getMuseums() {
   const response = await fetch("https://www.data.gouv.fr/fr/datasets/r/a5c5d76e-979a-4073-ba0d-0844bb3c1398");
-  const museophile = await response.json();
+  const data = await response.json();
 
   const promise = await fetch("https://www.data.gouv.fr/fr/datasets/r/ea98fdcb-5c24-4646-9823-c6d2914d0b36");
   const acrList = await promise.json();
 
-  showMuseum(museophile, acrList);
+  showMuseum(data, acrList);
 }
 // Appel de cette fonction :
 getMuseums();
@@ -41,7 +41,7 @@ function showMuseum(museum, acr) {
 
     museumName.innerText = museum[i].nom_officiel;
     museumCity.innerText = `${museum[i].ville} (${museum[i].code_postal})`;
-    newImage.src = showIcon(selectTheme);
+    newImage.src = showIcon(selectTheme)
     moreInfoButton.innerText = "En savoir +";
 
     listMuseum.appendChild(newDiv);
@@ -140,6 +140,7 @@ function showIcon(theme) {
 
       default:
         return "./icones/ticketMusee.png";
+        console.log("Désolé, nous n'avons plus de " + theme + ".");
     }
   }
 }
@@ -246,7 +247,7 @@ function openModal(museum, acr) {
 // on ajoute l'url de base de l'API (apiUrl) à la châine de requête ("?")
 
 async function showSearchResults() {
-  listMuseum.innerHTML = ""; 
+  listMuseum.innerHTML = ""; // rajout de ceci pour effacer la précédente recherche
 
   let regionQuery = selectRegion.value;
   let themeQuery = selectTheme.value;
@@ -254,7 +255,7 @@ async function showSearchResults() {
 
   // construire l'url avec les filtres sélectionnés
   if (regionQuery || themeQuery) {
-    fullUrl += "?";
+    fullUrl += "&";
     if (regionQuery) {
       fullUrl += regionQuery;
       if (themeQuery) {
@@ -265,6 +266,21 @@ async function showSearchResults() {
     }
   }
   const response = await fetch(fullUrl);
+  const data = await response.json();
+  const total = data.total_count;
+  let offset = 100;
+  let museums = data.results;
+  while (offset <= total) {
+    const res = await fetch(`${fullUrl}&offset=${offset}`)
+    const dat = await res.json();
+    dat.results.forEach(result => {
+      museums.push(result)
+    })
+    offset += 100;
+  }
+
+
+  const searchResults = data.results; // variable qui stocke les résultats de la recherche
 
   const promise = await fetch("https://www.data.gouv.fr/fr/datasets/r/ea98fdcb-5c24-4646-9823-c6d2914d0b36");
   const acrList = await promise.json();
@@ -275,14 +291,12 @@ async function showSearchResults() {
       response.status
     );
     listMuseum.innerHTML = "<p>Erreur lors de la récupération des données.</p>";
-    return; 
+    return; // Arrête l'exécution de la fonction en cas d'erreur
   }
 
-  const data = await response.json();
-  const searchResults = data.results; // variable qui stocke les résultats de la recherche
 
   // Affiche le nombre de résultats
-  const resultCount = searchResults.length;
+  const resultCount = total;
   const resultCountElement = document.createElement("p");
   resultCountElement.innerText = `Nombre de résultats : ${resultCount}`;
   resultCountElement.classList.add("compteurReponses");
@@ -299,4 +313,6 @@ async function showSearchResults() {
 
 selectRegion.addEventListener("change", showSearchResults);
 selectTheme.addEventListener("change", showSearchResults);
+
+
 
