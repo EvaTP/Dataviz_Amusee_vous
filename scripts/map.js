@@ -1,5 +1,5 @@
 const selectTheme = document.getElementById("Themes")
-const map = L.map('mapid').setView([46.603354, 1.888334], 6);
+const map = L.map('mapId').setView([46.603354, 1.888334], 6);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
@@ -8,7 +8,7 @@ let markerGroup = L.layerGroup().addTo(map)
 
 async function getMuseums() {
     let apiUrl =
-  "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?limit=100";
+        "https://data.culture.gouv.fr/api/explore/v2.1/catalog/datasets/musees-de-france-base-museofile/records?limit=100";
     if (selectTheme.value) {
         apiUrl += `&${selectTheme.value}`
     }
@@ -25,37 +25,26 @@ async function getMuseums() {
         })
         offset += 100;
     }
-    console.log(museums)
 
 
-    
-    
 
-    
-        museums.forEach(item => {
-            const longitude = item.coordonnees.lon
-            const latitude = item.coordonnees.lat
-            var marker = L.icon({
-                iconSize:     [20, 30], // size of the icon
-                shadowSize:   [50, 64], // size of the shadow
-                iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
-                shadowAnchor: [4, 62],  // the same for the shadow
-                popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
-            });
-            L.marker([latitude, longitude]).addTo(markerGroup)
-                .bindPopup("Nom: "+(item.nom_officiel? item.nom_officiel : "Non disponible" )+ "<br>"+
-                    "Adresse: "+(item.adresse? item.adresse : "Non disponible" )+ "<br>"+
-                    "Code postal: "+(item.code_postal ? item.code_postal : "Non disponible")+"<br>"+
-                    "Ville: "+(item.ville ? item.ville : "Non disponible") +"<br>" +
-                    "Région: "+(item.region ? item.region : "Non disponible")+"<br>"+
-                    "Département: "+(item.departement ? item.departement : "Non disponible")+"<br>"+
-                    "Site Web: " + (item.url ? '<a href="http://' + item.url + '" target="_blank">' + item.url + '</a>' : "Non disponible"))
-                    
+    museums.forEach(item => {
+        const longitude = item.coordonnees.lon
+        const latitude = item.coordonnees.lat
+        L.marker([latitude, longitude]).addTo(markerGroup)
+            .bindPopup("Nom: " + (item.nom_officiel ? item.nom_officiel : "Non disponible") + "<br>" +
+                "Adresse: " + (item.adresse ? item.adresse : "Non disponible") + "<br>" +
+                "Code postal: " + (item.code_postal ? item.code_postal : "Non disponible") + "<br>" +
+                "Ville: " + (item.ville ? item.ville : "Non disponible") + "<br>" +
+                "Région: " + (item.region ? item.region : "Non disponible") + "<br>" +
+                "Département: " + (item.departement ? item.departement : "Non disponible") + "<br>" +
+                "Site Web: " + (item.url ? '<a href="http://' + item.url + '" target="_blank">' + item.url + '</a>' : "Non disponible"))
 
-                    
-                    
 
-        })
+
+
+
+    })
 }
 getMuseums()
 
