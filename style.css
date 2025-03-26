@@ -349,6 +349,21 @@ aside h2 {
 	font-size: 1.5em;
 	margin: 0.50em 0.25em;
 }
+#reset-button {
+	background-color: var(--secondColor);
+	display: flex;
+	width: 80%;
+	justify-content: center;
+	align-items: center;
+	padding: 5px;
+	border: solid 2px var(--fourthColor);
+	border-radius: 10px;
+	font-weight: bold;
+	margin: 0 auto;
+}
+#reset-button a {
+	color: var(--fourthColor);
+}
 
 /* STYLES RECHERCHE PAR REGION / THEMATIQUE */
 
