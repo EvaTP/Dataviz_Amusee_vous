@@ -266,6 +266,21 @@ async function showSearchResults() {
     }
   }
   const response = await fetch(fullUrl);
+  const data = await response.json();
+  const total = data.total_count;
+  let offset = 100;
+  let museums = data.results;
+  while (offset <= total) {
+    const res = await fetch(`${fullUrl}&offset=${offset}`)
+    const dat = await res.json();
+    dat.results.forEach(result => {
+      museums.push(result)
+    })
+    offset += 100;
+  }
+
+
+  const searchResults = data.results; // variable qui stocke les résultats de la recherche
 
   const promise = await fetch("https://www.data.gouv.fr/fr/datasets/r/ea98fdcb-5c24-4646-9823-c6d2914d0b36");
   const acrList = await promise.json();
@@ -279,11 +294,9 @@ async function showSearchResults() {
     return; // Arrête l'exécution de la fonction en cas d'erreur
   }
 
-  const data = await response.json();
-  const searchResults = data.results; // variable qui stocke les résultats de la recherche
 
   // Affiche le nombre de résultats
-  const resultCount = searchResults.length;
+  const resultCount = total;
   const resultCountElement = document.createElement("p");
   resultCountElement.innerText = `Nombre de résultats : ${resultCount}`;
   resultCountElement.classList.add("compteurReponses");
