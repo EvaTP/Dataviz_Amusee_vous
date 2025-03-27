@@ -26,8 +26,6 @@ async function getMuseums() {
         offset += 100;
     }
 
-
-
     museums.forEach(item => {
         const longitude = item.coordonnees.lon
         const latitude = item.coordonnees.lat
@@ -39,11 +37,6 @@ async function getMuseums() {
                 "Région: " + (item.region ? item.region : "Non disponible") + "<br>" +
                 "Département: " + (item.departement ? item.departement : "Non disponible") + "<br>" +
                 "Site Web: " + (item.url ? '<a href="http://' + item.url + '" target="_blank">' + item.url + '</a>' : "Non disponible"))
-
-
-
-
-
     })
 }
 getMuseums()
