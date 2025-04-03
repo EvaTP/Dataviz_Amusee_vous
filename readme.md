@@ -1,7 +1,8 @@
 # PROJET DATAVIZ - A VOS MUSEES !
 
 ## Visitez le site :
-https://dataviz-amusee-vous.vercel.app
+https://a-vos-musees.vercel.app
+
 
 ## Description du projet : 
 
