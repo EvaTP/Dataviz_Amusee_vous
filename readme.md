@@ -1,5 +1,8 @@
 # PROJET DATAVIZ - A VOS MUSEES !
 
+## Visitez le site :
+https://dataviz-amusee-vous.vercel.app
+
 ## Description du projet : 
 
 Ce projet permet de visualiser de façon dynamique les musées de France. Nous avons utilisé deux API dans la liste d'Open Data University : "Répertoire des Musées de France : base Muséofile" et "Liste des édifices labellisés « Architecture contemporaine remarquable » (ACR)".
